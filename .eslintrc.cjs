@@ -4,18 +4,19 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'plugin:vue/vue3-essential',
-    'standard-with-typescript'
+    "plugin:vue/vue3-essential",
+    "standard-with-typescript",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "@vue/prettier",
+    "@vue/prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
-  overrides: [
-  ],
+  overrides: [],
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
+    ecmaVersion: "latest",
+    sourceType: "module"
   },
-  plugins: [
-    'vue'
-  ],
-  rules: {
-  }
+  plugins: ["vue"],
+  rules: {}
 }

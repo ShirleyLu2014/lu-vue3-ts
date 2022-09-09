@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "lint": "vite lint",
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "commit": "cz"
@@ -15,17 +16,24 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.18.9",
     "@types/node": "^18.7.16",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@vitejs/plugin-vue": "^3.1.0",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.1",
     "eslint-plugin-vue": "^9.4.0",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
-    "typescript": "^4.6.4",
+    "typescript": "^4.8.3",
     "vite": "^3.1.0",
+    "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^0.40.4"
   }
 }

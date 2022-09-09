@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <el-button type="primary">hahahah</el-button>
+    <el-button type="primary">hahahassssh</el-button>
     <el-icon-user></el-icon-user>
     <router-view></router-view>
   </div>

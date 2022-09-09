@@ -52,7 +52,7 @@ npm install prettier -D
   "useTabs": false,
   "tabWidth": 2,
   "printWidth": 80,
-  "singleQuote": true,
+  "singleQuote": false,
   "trailingComma": "none",
   "semi": false
 }
@@ -89,9 +89,41 @@ npm install prettier -D
 
 ### 1.3. 使用 ESLint 检测
 
-1.在前面创建项目的时候，我们就选择了 ESLint，所以 Vue 会默认帮助我们配置需要的 ESLint 环境。
+1.安装 eslint
 
-2.VSCode 需要安装 ESLint 插件：
+```shell
+npm install eslint -D
+```
+
+2.初始化 eslint
+
+```shell
+npx eslint --init
+```
+
+    2.1 选择模式： To check syntax, find problems, and enforce code style 严格模式
+    2.2 选择语言模块：选择 javascript
+    2.3 选择语言框架 选择 vue.js
+    2.4 是否使用 ts，视自己情况而定，我这里不用 选择的 Yes
+    2.5 代码在哪里运行 使用空格键全选 浏览器+node
+    2.6 选择一个风格：选择流行的即可
+    2.7 你想遵循哪一种风格指南? 选择 Standard 我一直用的这个社区指南，感觉很好。认可度也高
+    2.8 您希望您的配置文件是什么格式? 选择 js 即可
+    2.9 之后 enter 就行
+    2.10 安装完成后，在项目根目录会出现.eslintrc.js 文件
+    2.11 安装 vite-plugin-eslint 插件
+
+    ```shell
+    npm i -D vite-plugin-eslint
+    ```
+    2.12 配置vite.config.ts文件
+    ```shell
+    eslintPlugin({
+      include: ["src/**/*.js", "src/**/*.vue", "src/*.js", "src/*.vue"]
+    })
+    ```
+
+3.VSCode 需要安装 ESLint 插件：
 
 ![image-20210722215933360](https://tva1.sinaimg.cn/large/008i3skNgy1gsq2oq26odj30pw05faaq.jpg)
 
@@ -100,7 +132,7 @@ npm install prettier -D
 安装插件：（vue 在创建项目时，如果选择 prettier，那么这两个插件会自动安装）
 
 ```shell
-npm i eslint-plugin-prettier eslint-config-prettier -D
+npm i eslint-plugin-prettier eslint-config-prettier eslint-config-prettier -D
 ```
 
 添加 prettier 插件：
@@ -262,9 +294,9 @@ npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 
 ## 二. 第三方库集成
 
-### 2.1. vue.config.js 配置
+### 2.1. vue.config.ts 配置
 
-vue.config.js 有三种配置方式：
+vue.config.ts 有三种配置方式：
 
 - 方式一：直接通过 CLI 提供给我们的选项来配置：
   - 比如 publicPath：配置应用程序部署的子目录（默认是 `/`，相当于部署在 `https://www.my-app.com/`）；
@@ -275,30 +307,24 @@ vue.config.js 有三种配置方式：
 - 方式三：通过 chainWebpack 修改 webpack 的配置：
   - 是一个函数，会接收一个基于 [webpack-chain](https://github.com/mozilla-neutrino/webpack-chain) 的 config 对象，可以对配置进行修改；
 
-```js
-const path = require("path")
+1. 配置路径别名
 
-module.exports = {
-  outputDir: "./build",
-  // configureWebpack: {
-  //   resolve: {
-  //     alias: {
-  //       views: '@/views'
-  //     }
-  //   }
-  // }
-  // configureWebpack: (config) => {
-  //   config.resolve.alias = {
-  //     '@': path.resolve(__dirname, 'src'),
-  //     views: '@/views'
-  //   }
-  // },
-  chainWebpack: (config) => {
-    config.resolve.alias
-      .set("@", path.resolve(__dirname, "src"))
-      .set("views", "@/views")
+```js
+import { join } from "path"
+```
+
+这里会因为无法识别 node 的类型，会报错，所以需要安装 @types/node
+
+```shell
+npm install @types/node -D
+```
+
+```js
+resolve: {
+    alias: {
+      "@": join(__dirname, "/src")
+    }
   }
-}
 ```
 
 ### 2.2. vue-router 集成
@@ -539,7 +565,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios"
 import { Result } from "./types"
 import { useUserStore } from "/@/store/modules/user"
 
-class HYRequest {
+class LURequest {
   private instance: AxiosInstance
 
   private readonly options: AxiosRequestConfig
@@ -605,7 +631,7 @@ class HYRequest {
   }
 }
 
-export default HYRequest
+export default LURequest
 ```
 
 ### 2.6. VSCode 配置

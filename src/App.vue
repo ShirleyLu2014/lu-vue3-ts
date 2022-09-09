@@ -1,12 +1,11 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div>
-    <el-button type="primary">hahahassssh</el-button>
-    <el-icon-user></el-icon-user>
-    <router-view></router-view>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <el-button type="warning">hahaha</el-button>
+  <div>{{ demo }}</div>
 </template>
+
+<script setup lang="ts">
+import { ref } from "vue"
+const demo = ref("demo")
+</script>
 
 <style scoped></style>

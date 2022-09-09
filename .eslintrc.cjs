@@ -7,9 +7,6 @@ module.exports = {
     "plugin:vue/vue3-essential",
     "standard-with-typescript",
     "eslint:recommended",
-    "@vue/typescript/recommended",
-    "@vue/prettier",
-    "@vue/prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
   overrides: [],

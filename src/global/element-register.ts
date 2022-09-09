@@ -3,7 +3,7 @@ import "element-plus/theme-chalk/base.css"
 import "element-plus/theme-chalk/index.css"
 // import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import { User, Lock } from "@element-plus/icons-vue" // 小图标部分引入
-import { toLine } from "../utils"
+import { toLine } from "@/utils"
 import {
   ElButton,
   ElTabs,

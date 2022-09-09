@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite --mode development",
+    "test": "vite --mode test",
+    "build": "vue-tsc --noEmit && vite build --mode production",
     "lint": "vite lint",
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "commit": "cz"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "element-plus": "^2.2.16",
     "vue": "^3.2.37"
   },
@@ -25,6 +27,7 @@
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.5",

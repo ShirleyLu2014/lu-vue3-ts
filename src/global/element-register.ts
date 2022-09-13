@@ -14,7 +14,11 @@ import {
   ElCheckbox,
   ElLink,
   ElRow,
-  ElCol
+  ElCol,
+  ElAside,
+  ElContainer,
+  ElHeader,
+  ElMain
 } from "element-plus/lib/index"
 const components = [
   ElButton,
@@ -26,7 +30,11 @@ const components = [
   ElCheckbox,
   ElLink,
   ElRow,
-  ElCol
+  ElCol,
+  ElAside,
+  ElContainer,
+  ElHeader,
+  ElMain
 ]
 const ElementPlusIconsVue = [User, Lock, Calendar, Iphone]
 export default function registerElement(app: App) {

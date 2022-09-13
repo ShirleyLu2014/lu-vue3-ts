@@ -2,6 +2,7 @@ import type { Module } from "vuex"
 import { IRootState } from "../types"
 import { ILoginState } from "./types"
 import localCache from "@/utils/cache"
+import { useRouter } from "vue-router"
 import {
   accountLoginRequest,
   requestUserInfoById,
@@ -52,6 +53,8 @@ const loginModule: Module<ILoginState, IRootState> = {
       console.log("userMenuRes", userMenuRes)
       const userMenu = userMenuRes.data
       commit("changeUserMenu", userMenu)
+      const router = useRouter()
+      // router.push("/main")
     }
   }
 }

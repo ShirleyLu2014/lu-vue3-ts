@@ -1,6 +1,6 @@
 import luRequest from "../index"
 
-import { IAccount, ILoginResult } from "./type"
+import type { IAccount, ILoginResult } from "./type"
 import { IDataType } from "../types"
 
 enum LoginAPI {

@@ -5,6 +5,7 @@ import "virtual:windi.css"
 import App from "./App.vue"
 import { globalRegister } from "./global"
 import router from "@/router"
+import store from "@/store"
 // import luRequest from "@/service"
 // luRequest.get({}).then((res) => {
 //   console.log(res)
@@ -12,4 +13,5 @@ import router from "@/router"
 const app = createApp(App)
 app.use(globalRegister)
 app.use(router)
+app.use(store)
 app.mount("#app")

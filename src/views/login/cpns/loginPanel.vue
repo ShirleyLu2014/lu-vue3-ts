@@ -1,24 +1,24 @@
 <template>
   <div class="login-panel">
     <h1 class="title">后台管理系统</h1>
-    <el-tabs type="border-card" stretch>
-      <el-tab-pane label="User">
+    <el-tabs type="border-card" stretch v-model="currentTab">
+      <el-tab-pane name="account">
         <template #label>
           <span class="tabs-label">
             <el-icon-user />
             <span>账号登陆</span>
           </span>
         </template>
-        <login-account ref="accountRef"></login-account>
+        <login-account ref="accountRef" />
       </el-tab-pane>
-      <el-tab-pane label="Config">
+      <el-tab-pane name="phone">
         <template #label>
           <span class="tabs-label">
             <el-icon-iphone />
             <span>手机登录</span>
           </span>
         </template>
-        <login-phone></login-phone>
+        <login-phone ref="phoneRef" />
       </el-tab-pane>
     </el-tabs>
     <div class="account-control">
@@ -36,12 +36,18 @@
 import LoginAccount from "./loginAccount.vue"
 import LoginPhone from "./loginPhone.vue"
 import { ref } from "vue"
-const accountRef = ref()
-// const accountRef = ref<InstanceType<typeof LoginAccount>>()
+const accountRef = ref<InstanceType<typeof LoginAccount>>()
+const phoneRef = ref<InstanceType<typeof LoginPhone>>()
+const currentTab = ref("account")
 const isKeepPassword = ref(true)
 const handleLoginClick = () => {
-  console.log("hahaha", accountRef.value)
-  accountRef.value?.loginAction()
+  console.log("hahaha")
+  if (currentTab.value === "account") {
+    console.log("账号登录")
+    accountRef.value?.loginAction(isKeepPassword.value)
+  } else {
+    return
+  }
 }
 </script>
 

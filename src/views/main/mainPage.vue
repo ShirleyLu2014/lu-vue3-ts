@@ -31,15 +31,17 @@ const handleFoldEmit = (e: boolean) => {
 <style scoped lang="less">
 .common-layout {
   .container-style {
-    @apply h-screen w-screen;
+    height: 100%;
     .aside {
       @apply bg-indigo-200;
     }
     .header {
-      @apply h-40px w-screen bg-gray-50 pl-0;
+      width: 100%;
+      @apply h-40px bg-gray-50 pl-0 pr-0;
     }
     .main {
-      @apply h-screen w-screen  bg-indigo-100;
+      width: 100%;
+      @apply h-screen bg-indigo-100;
     }
   }
 }

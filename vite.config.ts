@@ -3,6 +3,8 @@ import vue from "@vitejs/plugin-vue"
 import { join } from "path"
 import eslintPlugin from "vite-plugin-eslint"
 import WindiCSS from "vite-plugin-windicss"
+import ElementPlus from "unplugin-element-plus/vite"
+// import requireTransform from "vite-plugin-require-transform"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,7 +15,12 @@ export default defineConfig({
     //   cache: false,
     //   exclude: ["./node_modules"]
     // }),
-    WindiCSS()
+    WindiCSS(),
+    // 或者使用 unplugin-element-plus
+    ElementPlus({
+      useSource: true
+    })
+    // requireTransform({ fileRegex: /.js$|.vue$|.ts$/ })
   ],
   resolve: {
     alias: {

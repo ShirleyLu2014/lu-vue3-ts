@@ -2,7 +2,18 @@ import type { App } from "vue"
 import "element-plus/theme-chalk/base.css"
 import "element-plus/theme-chalk/index.css"
 // import * as ElementPlusIconsVue from "@element-plus/icons-vue";
-import { User, Lock, Calendar, Iphone } from "@element-plus/icons-vue" // 小图标部分引入
+import {
+  User,
+  Lock,
+  Calendar,
+  Iphone,
+  Monitor,
+  Setting,
+  Goods,
+  ChatLineRound,
+  Fold,
+  Expand
+} from "@element-plus/icons-vue" // 小图标部分引入
 import { toLine } from "@/utils"
 import {
   ElButton,
@@ -18,7 +29,11 @@ import {
   ElAside,
   ElContainer,
   ElHeader,
-  ElMain
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+  ElMenuItemGroup
 } from "element-plus/lib/index"
 const components = [
   ElButton,
@@ -34,9 +49,24 @@ const components = [
   ElAside,
   ElContainer,
   ElHeader,
-  ElMain
+  ElMain,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+  ElMenuItemGroup
 ]
-const ElementPlusIconsVue = [User, Lock, Calendar, Iphone]
+const ElementPlusIconsVue = [
+  User,
+  Lock,
+  Calendar,
+  Iphone,
+  Monitor,
+  Setting,
+  Goods,
+  ChatLineRound,
+  Fold,
+  Expand
+]
 export default function registerElement(app: App) {
   // 注册组件
   for (const component of components) {

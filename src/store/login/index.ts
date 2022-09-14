@@ -2,7 +2,8 @@ import type { Module } from "vuex"
 import { IRootState } from "../types"
 import { ILoginState } from "./types"
 import localCache from "@/utils/cache"
-import { useRouter } from "vue-router"
+import { mapMenusToRoutes } from "@/utils/mapMenus"
+import router from "@/router"
 import {
   accountLoginRequest,
   requestUserInfoById,
@@ -21,11 +22,17 @@ const loginModule: Module<ILoginState, IRootState> = {
     changeToken(state, token: string) {
       state.token = token
     },
-    changeUserInfo(state, userInfo: {}) {
+    changeUserInfo(state, userInfo: any) {
       state.userInfo = userInfo
     },
-    changeUserMenu(state, userMenu: []) {
+    async changeUserMenu(state, userMenu: any) {
       state.userMenu = userMenu
+      const routes = await mapMenusToRoutes(userMenu)
+      console.log("555routes", routes)
+      // 将routes => router.main.children
+      routes.forEach((route) => {
+        router.addRoute("main", route)
+      })
     }
   },
   getters: {},
@@ -53,7 +60,11 @@ const loginModule: Module<ILoginState, IRootState> = {
       console.log("userMenuRes", userMenuRes)
       const userMenu = userMenuRes.data
       commit("changeUserMenu", userMenu)
-      const router = useRouter()
+      console.log("userMenu", userMenu)
+      localCache.setCache("userMenu", userMenu)
+
+      // 4.跳到首页
+      router.push("/main")
       // router.push("/main")
     }
   }

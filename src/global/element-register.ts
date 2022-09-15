@@ -12,8 +12,22 @@ import {
   Goods,
   ChatLineRound,
   Fold,
-  Expand
+  Expand,
+  ArrowDown
 } from "@element-plus/icons-vue" // 小图标部分引入
+const ElementPlusIconsVue = [
+  User,
+  Lock,
+  Calendar,
+  Iphone,
+  Monitor,
+  Setting,
+  Goods,
+  ChatLineRound,
+  Fold,
+  Expand,
+  ArrowDown
+]
 import { toLine } from "@/utils"
 import {
   ElButton,
@@ -33,7 +47,16 @@ import {
   ElMenu,
   ElMenuItem,
   ElSubMenu,
-  ElMenuItemGroup
+  ElMenuItemGroup,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem,
+  ElAvatar,
+  ElSelect,
+  ElOption,
+  ElDatePicker
 } from "element-plus/lib/index"
 const components = [
   ElButton,
@@ -53,19 +76,16 @@ const components = [
   ElMenu,
   ElMenuItem,
   ElSubMenu,
-  ElMenuItemGroup
-]
-const ElementPlusIconsVue = [
-  User,
-  Lock,
-  Calendar,
-  Iphone,
-  Monitor,
-  Setting,
-  Goods,
-  ChatLineRound,
-  Fold,
-  Expand
+  ElMenuItemGroup,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElDropdown,
+  ElDropdownMenu,
+  ElDropdownItem,
+  ElAvatar,
+  ElSelect,
+  ElOption,
+  ElDatePicker
 ]
 export default function registerElement(app: App) {
   // 注册组件

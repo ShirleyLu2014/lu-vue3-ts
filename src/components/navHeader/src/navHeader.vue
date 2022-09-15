@@ -3,14 +3,16 @@
     <el-icon-fold :sixe="40" v-if="isFold" @click="handleFold" />
     <el-icon-expand v-if="!isFold" @click="handleExpand" />
     <div class="content">
-      <div class="content-left">ssssmianbaoxie</div>
-      <div class="content-right">用户信息</div>
+      <bread-crumb></bread-crumb>
+      <user-info></user-info>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from "vue"
+import BreadCrumb from "./breadCrumb.vue"
+import UserInfo from "./userInfo.vue"
+import { ref } from "vue"
 const emit = defineEmits(["handleFoldEmit"])
 const isFold = ref(false)
 const handleFold = () => {
@@ -31,9 +33,8 @@ const handleExpand = () => {
   height: 100%;
   @apply flex items-center;
   .content {
-    border: 1px solid #f00;
     width: 100%;
-    @apply flex justify-between items-center;
+    @apply flex justify-between items-center pr-2;
   }
 }
 </style>

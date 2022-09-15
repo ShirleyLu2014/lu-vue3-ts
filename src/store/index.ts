@@ -19,3 +19,7 @@ export default store
 export function useStore(): Store<IStoreType> {
   return useVuexStore()
 }
+export function setupStore() {
+  store.dispatch("login/loadLocalLogin")
+  // store.dispatch('getInitialDataAction')
+}

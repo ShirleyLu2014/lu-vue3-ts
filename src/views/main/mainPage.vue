@@ -41,7 +41,7 @@ const handleFoldEmit = (e: boolean) => {
     }
     .main {
       width: 100%;
-      @apply h-screen bg-indigo-100;
+      @apply h-screen bg-indigo-100 p-2;
     }
   }
 }
